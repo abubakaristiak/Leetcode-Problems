@@ -20,3 +20,30 @@ public:
         return ans;
     }
 };
+
+
+// Another approach:
+class Solution {
+public:
+    void solve(int curr, int n,vector<int> &result){
+        if(curr > n){
+            return;
+        }
+        result.push_back(curr);
+        for(int add_digit=0; add_digit<=9; add_digit++){
+            int newNum = curr*10 + add_digit;
+            if(newNum > n){
+                return;
+            }
+            solve(newNum, n, result);
+        }
+    }
+
+    vector<int> lexicalOrder(int n) {
+        vector<int> result;
+        for(int startNum=1; startNum<=9; startNum++){
+            solve(startNum, n, result);
+        }
+        return result;
+    }
+};
