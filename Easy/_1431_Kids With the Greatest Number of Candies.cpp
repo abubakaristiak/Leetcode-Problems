@@ -12,6 +12,8 @@ public:
                 mx = c[i];
             }
         }
+
+        
         vector<bool> v(n,false);
         for(int i=0; i<n; i++){
             if(c[i]+e >= mx){
