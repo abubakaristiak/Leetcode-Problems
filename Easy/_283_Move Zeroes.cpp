@@ -16,6 +16,7 @@ public:
                 j++;
             }
         }
+        
         for(int i=0; i<n;  i++){
             nums[i] = ar[i];
         }
