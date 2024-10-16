@@ -5,24 +5,15 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    int x;
-    cin >> x;
-    bool flag=true;
-    if(x>0){
-        string s = to_string(x);
-        int i=0, j=s.length()-1;
-        while (i<j)
-        {
-            if(s[i]!=s[j]){
-                flag=false;
-                break;
-            }
-            i++;
-            j--;
-        }   
+    int n; cin>>n;
+    bool flag=false;
+    for(int i=1; i<n-1; i++){
+        if(n%i==0){
+            flag=true;
+            break;
+        }
     }
-    if(x<0) flag=false;
     if(flag) cout << "YES" << endl;
-    else cout << "NO" << endl;
+    else cout << "NO"<< endl;
     return 0;
 }
