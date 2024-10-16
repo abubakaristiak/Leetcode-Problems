@@ -8,12 +8,17 @@ int main()
     string a;
     cin>> a;
     int n=a.length();
+    // for(int i=0; i<n; i++){
+    //     if(a[i]>=65 && a[i]<=90){
+    //         a[i] = a[i]+32;
+    //     }
+    // }
+    // cout << a << endl;
     for(int i=0; i<n; i++){
-        if(a[i]>=65 && a[i]<=90){
-            a[i] = a[i]+32;
-        }
+        a[i]=tolower(a[i]);
     }
     cout << a << endl;
+
 
     return 0;
 }
