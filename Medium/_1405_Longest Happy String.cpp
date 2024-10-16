@@ -20,6 +20,8 @@ public:
                 if(pq.empty()){
                     break;
                 }
+
+                
                 int nextCount=pq.top().first;
                 int nextChar=pq.top().second;
                 pq.pop();
@@ -28,7 +30,9 @@ public:
                 if(nextCount>0){
                     pq.push({nextCount, nextChar});
                 }
-            } else{
+            }
+            
+            else{
                 curCount--;
                 res.push_back(curChar);
             }
