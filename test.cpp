@@ -5,20 +5,24 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    string a;
-    cin>> a;
-    int n=a.length();
-    // for(int i=0; i<n; i++){
-    //     if(a[i]>=65 && a[i]<=90){
-    //         a[i] = a[i]+32;
-    //     }
-    // }
-    // cout << a << endl;
-    for(int i=0; i<n; i++){
-        a[i]=tolower(a[i]);
+    int x;
+    cin >> x;
+    bool flag=true;
+    if(x>0){
+        string s = to_string(x);
+        int i=0, j=s.length()-1;
+        while (i<j)
+        {
+            if(s[i]!=s[j]){
+                flag=false;
+                break;
+            }
+            i++;
+            j--;
+        }   
     }
-    cout << a << endl;
-
-
+    if(x<0) flag=false;
+    if(flag) cout << "YES" << endl;
+    else cout << "NO" << endl;
     return 0;
 }
