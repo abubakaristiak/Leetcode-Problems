@@ -1,5 +1,7 @@
-//https://leetcode.com/problems/baseball-game/
-/*
+// https://leetcode.com/problems/baseball-game/
+
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int calPoints(vector<string>& operations) {
@@ -31,4 +33,3 @@ public:
         return sum;
     }
 };
-*/
