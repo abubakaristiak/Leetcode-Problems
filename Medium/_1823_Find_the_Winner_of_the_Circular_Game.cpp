@@ -1,5 +1,7 @@
 //https://leetcode.com/problems/find-the-winner-of-the-circular-game/?envType=daily-question&envId=2024-07-08
-/*
+
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int findTheWinner(int n, int k) {
@@ -17,11 +19,10 @@ public:
         return ar[0];
     }
 };
-*/
+
 
 
 // another way using stack and queue;
-/*
 class Solution {
 public:
     queue<int> q;
@@ -40,4 +41,3 @@ public:
         return q.front();
     }
 };
-*/
