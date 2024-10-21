@@ -1,5 +1,8 @@
 // TODO: https://leetcode.com/problems/left-and-right-sum-differences/
-/*
+
+
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     vector<int> leftRightDifference(vector<int>& nums) {
@@ -22,4 +25,3 @@ public:
         
     }
 };
-*/
