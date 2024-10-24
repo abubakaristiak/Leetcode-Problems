@@ -1,5 +1,4 @@
 //https://leetcode.com/problems/flip-equivalent-binary-trees/description/?envType=daily-question&envId=2024-10-24
-
 #include<bits/stdc++.h>
 using namespace std;
 
