@@ -22,7 +22,8 @@ public:
             if(freq1[i]!=0 && freq2[i]!=0) continue;
             if(freq1[i]==0 && freq2[i]==0) continue;
             return false;
-        }
+        }  
+        
         sort(freq1.begin(), freq1.end());
         sort(freq2.begin(), freq2.end());
         return freq1==freq2;
