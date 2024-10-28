@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/longest-square-streak-in-an-array/description/?envType=daily-question&envId=2024-10-28
+
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
