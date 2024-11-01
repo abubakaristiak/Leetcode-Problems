@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/?envType=study-plan-v2&envId=leetcode-75
+
 #include<bits/stdc++.h>
 using namespace std;
 
