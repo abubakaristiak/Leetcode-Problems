@@ -1,23 +1,5 @@
 //https://leetcode.com/problems/reverse-linked-list/description/
 
-// class Solution {
-// public:
-//     void reverse(ListNode *&head, ListNode *cur){
-//         if(cur->next == NULL){
-//             head = cur;
-//             return;
-//         }
-//         reverse(head, cur->next);
-//         cur->next->next = cur;
-//         cur->next = NULL;
-//     }
-//     ListNode* reverseList(ListNode* head) {
-//         if(head == NULL) return head;
-//         reverse(head, head);
-//         return head;
-//     }
-// };
-
 #include<bits/stdc++.h>
 using namespace std;
 struct ListNode {
@@ -28,7 +10,32 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// main part;
+
+// 1st approach;
+class Solution {
+public:
+    void reverse(ListNode *&head, ListNode *cur){
+        if(cur->next == nullptr){
+            head = cur;
+            return;
+        }
+        reverse(head, cur->next);
+        cur->next->next = cur;
+        cur->next = nullptr;
+    }
+    ListNode* reverseList(ListNode* head) {
+        if(head == nullptr) return head;
+        reverse(head, head);
+        return head;
+    }
+};
+
+
+
+
+
+
+// 2nd approach;
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
