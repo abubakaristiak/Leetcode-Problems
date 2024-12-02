@@ -21,6 +21,35 @@
 #define fast() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 
+
+// Brute Force Approach
+class Solution {
+public:
+    int isPrefixOfWord(string sentence, string searchWord) {
+        string res;
+        int cnt=0, n=searchWord.size();
+        for(char ch:sentence){
+            if(ch==' '){
+                if(res.size()>=n && res.substr(0,n)==searchWord){
+                    return cnt+1;
+                }else{
+                    cnt++;
+                    res="";
+                }
+            }else{
+                res+=ch;
+            }
+        }
+        if(res.size()>=n && res.substr(0,n)==searchWord){
+            return cnt+1;
+        }else return -1;
+    }
+};
+
+
+
+
+// Optimal Approach:
 class Solution {
 public:
     int isPrefixOfWord(string sentence, string searchWord) {
