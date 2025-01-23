@@ -61,6 +61,30 @@ public:
 class Solution {
 public:
     int countServers(vector<vector<int>>& grid) {
-        
+        int m=grid.size();
+        int n=grid[0].size();
+
+        vector<int> colSuccessConnectionCnt(n,0);
+        vector<int> rowSuccessConnectionCnt(m,0);
+
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j]==1){
+                    colSuccessConnectionCnt[j]+=1;
+                    rowSuccessConnectionCnt[i]+=1;
+                }
+            }
+        }
+
+        int serversConnection=0;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j]==1 && (colSuccessConnectionCnt[j]>1 || rowSuccessConnectionCnt[i]>1)){
+                    serversConnection++;
+                }
+            }
+        }
+        return serversConnection;
+
     }
 };
