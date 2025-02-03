@@ -1,3 +1,17 @@
+/*
+ * Bismillahir Rahmanir Raheem
+ *
+ * * * * Coder   : abubakaristiak
+ * * * * Created : 2025-02-04 || 00:46:08
+ * * * * File    : _3105_Longest Strictly Increasing or Strictly Decreasing Subarray.cpp
+ */
+
+
+// https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/
+
+
+
+
 #include<bits/stdc++.h>
 #define ll long long
 #define pi pair<ll, ll>
@@ -37,6 +51,35 @@ public:
             res=max({res, incre, decre});
         }
 
+        return res;
+    }
+};
+
+
+
+
+
+// Better approach:
+class Solution {
+public:
+    int longestMonotonicSubarray(vector<int>& nums) {
+        int n=nums.size();
+
+        int res=1;
+        int incre=1, decre=1;
+        for(int i=1; i<n; i++){
+            if(nums[i]>nums[i-1]){
+                incre++;
+                decre=1;
+                res=max(res, incre);
+            }else if(nums[i]<nums[i-1]){
+                decre++;
+                incre=1;
+                res=max(res, decre);
+            }else{
+                incre=1, decre=1;
+            }
+        }
         return res;
     }
 };
