@@ -2,7 +2,7 @@
  * Bismillahir Rahmanir Raheem
  *
  * * * * Coder   : abubakaristiak
- * * * * Created : 2025-02-28 || 23:42:00
+ * * * * Created : 2025-02-28 || 23:47:33
  * * * * File    : _268_Missing Number.cpp
 */
 
@@ -26,22 +26,13 @@ using namespace std;
 template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 
-void solve()
-{
-    
-}
-
-
-int main()
-{
-    fast();
-    int t=1;
-    while (t--) {
-        solve();
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int res=nums.size();
+        for(int i=0; i<nums.size(); i++){
+            res+=i-nums[i];
+        }
+        return res;
     }
-
-    return 0;
-
-
-// Alhamdulillah
-}
+};
