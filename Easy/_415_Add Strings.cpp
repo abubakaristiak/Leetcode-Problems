@@ -2,15 +2,13 @@
  * Bismillahir Rahmanir Raheem
  *
  * * * * Coder   : abubakaristiak
- * * * * Created : 2025-02-26 || 00:08:18
- * * * * File    : _415_Add Strings.cpp
+ * * * * Created : 2025-03-12 || 13:46:19
+ * * * * File    : 415. Add Strings.cpp
 */
 
 
 
 #include<bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
 #define ll long long
 #define pi pair<ll, ll>
 #define asort(v) sort(v.begin(), v.end())
@@ -21,18 +19,41 @@
 #define cno cout << "No\n"
 #define endl "\n"
 #define fast() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
-using namespace __gnu_pbds;
 using namespace std;
 
-template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 
 class Solution {
 public:
     string addStrings(string num1, string num2) {
-        int val1=stoi(num1);
-        int val2=stoi(num2);
-        int res = val1+val2
-        cout << to_string(res) << endl;
+        int n1=num1.size()-1;
+        int n2=num2.size()-1;
+        int carry=0;
+
+        string res;
+        while (n1>=0 || n2>=0)
+        {
+            if(n1<0){
+                res.push_back(((num2[n2]-48+carry)%10)+48);
+                carry=(num2[n2]-48+carry)/10;
+                n2--;
+            }else if(n2<0){
+                res.push_back(((num1[n1]-48+carry)%10)+48);
+                carry=(num1[n1]-48+carry)/10;
+                n1--;
+                
+            }else{
+                res.push_back(((num1[n1]-48+num2[n2]-48+carry)%10)+48);
+                carry=(num1[n1]-48+num2[n2]-48+carry)/10;
+                n1--;
+                n2--;
+            }
+        }
+        if(carry){
+            res.push_back(carry+48);
+        }
+        reverse(res.begin(), res.end());
+        return res;
+        
     }
 };
