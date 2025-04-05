@@ -27,8 +27,33 @@ template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree
 
 
 class Solution {
-public:
-    int subsetXORSum(vector<int>& nums) {
-        
-    }
-};
+    public:
+    
+        void solve(vector<int>& nums, int i, vector<int>& currSubset,vector<vector<int>>& subsets) {
+            if (i == nums.size()) {
+                subsets.push_back(currSubset);
+                return;
+            }
+    
+            currSubset.push_back(nums[i]);
+            solve(nums, i + 1, currSubset, subsets);
+            currSubset.pop_back();
+            solve(nums, i + 1, currSubset, subsets);
+        }
+    
+        int subsetXORSum(vector<int>& nums) {
+            vector<vector<int>> subsets;
+            vector<int> currSubset;
+            solve(nums, 0, currSubset, subsets);
+    
+            int result = 0;
+            for (auto& currSubset : subsets) {
+                int Xor = 0;
+                for (int num : currSubset) {
+                    Xor ^= num;
+                }
+                result += Xor;
+            }
+            return result;
+        }
+    };
