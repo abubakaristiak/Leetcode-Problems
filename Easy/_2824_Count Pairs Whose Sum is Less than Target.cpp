@@ -41,3 +41,26 @@ public:
         return cnt;
     }
 };
+
+
+
+// Binary Search:
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        int n=nums.size();
+        asort(nums);
+        int cnt=0;
+        int l=0, r=n-1;
+        while (l<r)
+        {
+            if(nums[l]+nums[r]<target){
+                cnt+=(r-l);
+                l++;
+            }else{
+                r--;
+            }
+        }
+        return cnt;
+    }
+};
