@@ -44,3 +44,30 @@ public:
         return res;
     }
 };
+
+
+
+
+// TLE
+class Solution {
+public:
+    int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+        int n=dominoes.size();
+        
+        for(auto &dominoe:dominoes){
+            if(dominoe[0]>dominoe[1]){
+                swap(dominoe[0], dominoe[1]);
+            }
+        }
+        int cnt=0;
+        for(int i=0; i<n; i++){
+            for(int j=i+1; j<n; j++){
+                if(dominoes[i]==dominoes[j]){
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+        
+    }
+};
