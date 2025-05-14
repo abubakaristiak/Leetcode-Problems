@@ -1,0 +1,74 @@
+/*
+ * Bismillahir Rahmanir Raheem
+ *
+ * * * * Coder   : abubakaristiak
+ * * * * Created : 2025-05-15 || 01:37:58
+ * * * * File    : _216_Combination Sum III.cpp
+*//*
+||-----------------------------------||
+||        Abu Bakar Istiak           ||
+||     Chattogram Polytechnic        ||
+||        Department of CST          ||
+||    abubakar119147@gmail.com       ||
+||-----------------------------------||
+*/
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+
+#define ll long long
+#define ull unsigned long long
+#define pi pair<ll, ll>
+#define vi vector<ll>
+#define vpi vector<pi>
+#define pb push_back
+#define endl "\n"
+#define sp \" \"
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define cyes cout << "Yes\n"
+#define cno cout << "No\n"
+#define sz(x) (ll)(x).size()
+#define minus cout << -1 << endl
+#define zero cout << 0 << endl
+#define MAX 100000
+#define MOD 998244353
+#define afor(i,a,b) for (ll i = (a); i < (b); ++i)
+#define rfor(i,a,b) for (ll i = (a); i >= (b); --i)
+#define asort(v) sort((v).begin(), (v).end())
+#define rsort(v) sort((v).begin(), (v).end(), greater<>())
+#define fast() ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+
+void solve(int idx, int sum, int n, vector<vector<int>> &ans, vector<int> &tmp, int k){
+    if(sum==n && k==0){
+        ans.push_back(tmp);
+        return;
+    }
+    if(sum>n){
+        return;
+    }
+    for(int i=idx; i<=9; i++){
+        if(idx>n){
+            break;;
+        }
+        tmp.push_back(i);
+        solve(i+1, sum+i, n, ans, tmp, k-1);
+        tmp.pop_back();
+    }
+}
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<int> tmp;
+        vector<vector<int>> ans;
+        solve(1,0,n,ans,tmp,k);
+        return ans;
+    }
+};
