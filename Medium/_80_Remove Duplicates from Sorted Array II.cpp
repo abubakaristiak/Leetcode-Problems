@@ -7,9 +7,6 @@
  */
 
 
-// https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
-
-
 
 #include<bits/stdc++.h>
 #define ll long long
@@ -41,5 +38,34 @@ public:
         }
         return l;
         
+    }
+};
+
+
+
+// Another approach:
+/*
+ * Bismillahir Rahmanir Raheem
+ *
+ * * * * Coder   : abubakaristiak
+ * * * * Created : 2025-06-05 || 18:37:21
+ * * * * File    : _80_Remove Duplicates from Sorted Array II.cpp
+*/
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n=nums.size();
+        int k=2;
+
+        if(n<2){
+            return 1;
+        }
+        for(int i=2; i<n; i++){
+            if(nums[k-2]!=nums[i]){
+                nums[k]=nums[i];
+                k++;
+            }
+        }
+        return k;
     }
 };
