@@ -60,3 +60,31 @@ public:
         return mxOdd-mnEven;
     }
 };
+
+
+// Another way:
+class Solution {
+public:
+    int maxDifference(string s) {
+        map<char, int> mp;
+        for(char ch:s){
+            mp[ch]++;
+        }
+
+        vector<int> freq;
+        for(auto it:mp){
+            freq.push_back(it.second);
+        }
+
+        int mnEven=INT_MAX;
+        int mxOdd=0;
+        for(int i=0; i<freq.size(); i++){
+            if(freq[i]%2==0){
+                mnEven=min(mnEven, freq[i]);
+            }else{
+                mxOdd=max(mxOdd, freq[i]);
+            }
+        }
+        return mxOdd-mnEven;
+    }
+};
